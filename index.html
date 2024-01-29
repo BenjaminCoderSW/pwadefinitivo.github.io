@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi boton</title>
+    <link rel="stylesheet" href="css/estiloIndex.css">
+    <link rel="stylesheet" href="css/estiloMenu.css">
+    <!-- Enlace al archivo manifest.json -->
+    <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+    <div id="idContenedorIndex">
+        <header id="idEncabezadoIndex">
+            <h1>Mi aplicacion</h1>
+        </header>
+        <nav id="idMenuIndex">
+            <ul class="topnav">
+                <li>
+                    <a class="active" href="paginas/inicio.html" target="iframeContenido" class="active">Inicio</a>
+                </li>
+                <li class="right">
+                    <a href="paginas/inicio.html" target="iframeContenido">Ejemplo 1</a>
+                </li>
+                <li class="right active">
+                    <a href="paginas/listaVideos.html" target="iframeContenido">Lista videos</a>
+                </li>
+                <li class="right active">
+                    <a href="paginas/ejemplo1.html" target="iframeContenido">Perfil</a>
+                </li>
+            </ul>
+        </nav>
+        <section id="idContenidoIndex">
+            <iframe src="paginas/inicio.html" frameborder="0" name="iframeContenido" height="100%" width="100%"></iframe>
+        </section>
+        <footer id="idPieIndex">
+            <p>Aqui va el pie de pagina</p>
+        </footer>
+    </div>
+
+    <!-- Agregar el Service Worker -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(function(registration) {
+                    console.log('Service Worker registrado con éxito:', registration);
+                })
+                .catch(function(error) {
+                    console.error('Error al registrar el Service Worker:', error);
+                });
+        }
+    </script>
+</body>
+</html>
